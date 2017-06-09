@@ -29,6 +29,7 @@ p {
 .flex-container div {
   flex: 0 1 25%;
   border: 1px #ffffff solid;
+  
 }
 
 #empty-block {
