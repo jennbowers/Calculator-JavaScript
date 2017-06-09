@@ -1,3 +1,47 @@
+/*
+green: #61B34F
+light green: #82C276
+dark green: #3C5E34
+*/
+
+
 * {
   box-sizing: border-box;
+}
+
+p {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.flex-container {
+  width: 350px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-container div {
+  flex: 0 1 25%;
+  border: 1px #ffffff solid;
+}
+
+#empty-block {
+  flex-grow: 3;
+  flex-basis: 75%;
+}
+
+.green {
+  background-color: #61B34F;
+  color: #ffffff;
+}
+
+.light-green {
+  background-color: #82C276;
+  color: #3C5E34;
 }
