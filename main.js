@@ -11,8 +11,14 @@
     elements[i].addEventListener('click', function(event){
       var value = event.target.textContent;
       var holdingNode = document.querySelector('.holding-math');
-      holdingNode.textContent = holdingNode.textContent + value;
-      console.log(value);
+
+      if (value === "C") {
+        holdingNode.textContent = " ";
+        console.log(value);
+      } else {
+        holdingNode.textContent = holdingNode.textContent + value;
+        console.log(value);
+      }
 
 
     })
