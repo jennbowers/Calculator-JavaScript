@@ -1,18 +1,20 @@
 ( function () {
   'use strict';
 
+// this is creating a variable that is pulling from each html element with a class of cal-button
+
   var elements = document.querySelectorAll('.cal-button');
 
+// this is creating a for loop to go through each button with a class of cal-button (var elements) and add an event listener to each one to watch for a "click" and when it is click it will run the function(event).
+// the function(event) creates a variable out of the content of the button that is clicked. It then creates a variable out of the window of the calc. Then in the window of the calc it puts the content of what was already in the window along with the content of the button that was just pushed.
   for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', function(event){
       var value = event.target.textContent;
-        var holdingNode = document.querySelector('.holding-math');
-        holdingNode.textContent = value;
-        console.log(value);
-        // try not even taking the content out of the element.. just put the element value in manually since you have to onclick for every div anyways
+      var holdingNode = document.querySelector('.holding-math');
+      holdingNode.textContent = holdingNode.textContent + value;
+      console.log(value);
 
-      // console.log('event', event.target.textContent);
-      // console.log('clicked me');
+
     })
   }
   // var one = getElementById('one').value;f
