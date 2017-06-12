@@ -16,17 +16,14 @@
         holdingNode.textContent = ' ';
         console.log(value);
       } else if (value === 'x') {
-        holdingNode.textContent = holdingNode.textContent + '*';
-        console.log(holdingNode.textContent);
-        return holdingNode.textContent;
+          holdingNode.textContent = holdingNode.textContent + '*';
       } else if (value === '=') {
           console.log(holdingNode.textContent);
-          console.log(parseFloat(holdingNode.textContent));
-          return parseFloat(holdingNode.textContent);
+          holdingNode.textContent = eval(holdingNode.textContent);
+          console.log(holdingNode.textContent);
       } else {
-          parseFloat(holdingNode.textContent)
-          holdingNode.textContent = holdingNode.textContent + parseFloat(value);
-          console.log(parseFloat(value));
+          holdingNode.textContent = holdingNode.textContent + value;
+          console.log(holdingNode.textContent);
       }
 
 
