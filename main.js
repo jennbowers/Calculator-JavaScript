@@ -8,6 +8,12 @@
 // this is creating a for loop to go through each button with a class of cal-button (var elements) and add an event listener to each one to watch for a "click" and when it is click it will run the function(event).
 // the function(event) creates a variable out of the content of the button that is clicked. It then creates a variable out of the window of the calc. Then in the window of the calc it puts the content of what was already in the window along with the content of the button that was just pushed.
   for (var i = 0; i < elements.length; i++) {
+    // if (i === '.') {
+    //   elements[i].addEventListener('click', function(event){
+    //   var value = event.target.textContent;
+    //   var holdingNode = document.querySelector('.holding-math');
+    //   }, {once: true});
+    // } else {
     elements[i].addEventListener('click', function(event){
       var value = event.target.textContent;
       var holdingNode = document.querySelector('.holding-math');
@@ -25,9 +31,9 @@
           holdingNode.textContent = holdingNode.textContent + value;
           console.log(holdingNode.textContent);
       }
+    // })
 
-
-    })
+  })
   }
   // var one = getElementById('one').value;f
   // var two = getElementById('two').value;
