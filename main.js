@@ -12,12 +12,21 @@
       var value = event.target.textContent;
       var holdingNode = document.querySelector('.holding-math');
 
-      if (value === "C") {
-        holdingNode.textContent = " ";
+      if (value === 'C') {
+        holdingNode.textContent = ' ';
         console.log(value);
-      } else {
+      } else if (value === 'x' || value === '-' || value === '+' || value === '/') {
         holdingNode.textContent = holdingNode.textContent + value;
-        console.log(value);
+        console.log(holdingNode.textContent);
+        return holdingNode.textContent;
+      } else if (value === '=') {
+          console.log(holdingNode.textContent);
+          console.log(parseFloat(holdingNode.textContent));
+          return parseFloat(holdingNode.textContent);
+      } else {
+          parseFloat(holdingNode.textContent)
+          holdingNode.textContent = holdingNode.textContent + parseFloat(value);
+          console.log(parseFloat(value));
       }
 
 
