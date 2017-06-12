@@ -29,7 +29,7 @@ p {
 .flex-container div {
   flex: 0 1 25%;
   border: 1px #ffffff solid;
-  
+
 }
 
 #empty-block {
@@ -46,3 +46,6 @@ p {
   background-color: #82C276;
   color: #3C5E34;
 }
+
+
+/*ADD HOVER STYLING!!!!*/
