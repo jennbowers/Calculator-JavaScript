@@ -15,8 +15,8 @@
       if (value === 'C') {
         holdingNode.textContent = ' ';
         console.log(value);
-      } else if (value === 'x' || value === '-' || value === '+' || value === '/') {
-        holdingNode.textContent = holdingNode.textContent + value;
+      } else if (value === 'x') {
+        holdingNode.textContent = holdingNode.textContent + '*';
         console.log(holdingNode.textContent);
         return holdingNode.textContent;
       } else if (value === '=') {
