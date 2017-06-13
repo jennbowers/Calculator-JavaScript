@@ -4,27 +4,8 @@
 // this is creating a variable that is pulling from each html element with a class of cal-button
 
   var elements = document.querySelectorAll('.cal-button');
-  var decimalPoint = 0;
-  var num1;
-  var num2;
-  var operator;
-  var total;
-
-  // creating functions for operations
-  // change string to array
-  // toArray = holdingNode.textContent;
-  // num1 = array[0]
-  // operator = array [1]
-  // num2 = array [2]
-  // function multiply() {
-  //   num1 = parseFloat(splitString[0]);
-  //   num2 = parseFloat(splitString[2]);
-  //   console.log(num1);
-  //   console.log(num2);
-  //   total = num1 * num2;
-  //   console.log(total);
-  //   return total;
-  // }
+    var decimalClicked = 0;
+    var operatorClicked = 0;
 
 
 // this is creating a for loop to go through each button with a class of cal-button (var elements) and add an event listener to each one to watch for a "click" and when it is click it will run the function(event).
@@ -32,6 +13,10 @@
   for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', function(event){
       // declaring variables
+      var num1;
+      var num2;
+      var operator;
+      var total;
       var splitString;
       var toArray = [];
       var value = event.target.textContent;
@@ -64,24 +49,39 @@
       // beginning function
       if (value === 'C') {
         holdingNode.textContent = '';
-        decimalPoint = 0;
+        operatorClicked = 0;
+        decimalClicked = 0;
         console.log(value);
       } else if (value === '.') {
-        if (decimalPoint < 1) {
+        if (decimalClicked < 1) {
           holdingNode.textContent = holdingNode.textContent + value;
-          decimalPoint++;
-          console.log(decimalPoint);
+          decimalClicked++;
+          console.log(decimalClicked);
         } else {
           return;
         }
       } else if (value === 'x') {
-          holdingNode.textContent = holdingNode.textContent + ' ' + '*' + ' ';
-          decimalPoint = 0;
+          if (operatorClicked < 1) {
+            holdingNode.textContent = holdingNode.textContent + ' ' + '*' + ' ';
+            operatorClicked++;
+            console.log(operatorClicked);
+            console.log(holdingNode.textContent);
+          } else {
+            return;
+          }
+          decimalClicked = 0;
       } else if (value === '/' || value === '-' || value === '+'){
-          decimalPoint = 0;
-          holdingNode.textContent = holdingNode.textContent + ' ' + value + ' ';
-          console.log(holdingNode.textContent);
+          if (operatorClicked < 1) {
+            holdingNode.textContent = holdingNode.textContent + ' ' + value + ' ';
+            operatorClicked++;
+            console.log(operatorClicked);
+            console.log(holdingNode.textContent);
+          } else {
+            return;
+          }
+          decimalClicked = 0;
       } else if (value === '=') {
+          operatorClicked = 0;
           console.log(holdingNode.textContent);
           // split string & put in array
           splitString = holdingNode.textContent.split (" ");
@@ -109,6 +109,7 @@
       } else {
           holdingNode.textContent = holdingNode.textContent + value;
           console.log(holdingNode.textContent);
+          operatorClicked = 0;
       }
     // })
 
