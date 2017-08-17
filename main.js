@@ -19,30 +19,21 @@
       var value = event.target.textContent;
       var holdingNode = document.querySelector('.holding-math');
 
-      function multiply() {
+      function doMath(operator) {
         num1 = parseFloat(splitString[0]);
         num2 = parseFloat(splitString[2]);
-        total = num1 * num2;
+        if (operator === '*') {
+          total = num1 * num2;
+        } else if (operator === '/') {
+          total = num1 / num2;
+        } else if (operator === '+') {
+          total = num1 + num2;
+        } else {
+          total = num1 - num2;
+        }
         return total;
       }
-      function divide() {
-        num1 = parseFloat(splitString[0]);
-        num2 = parseFloat(splitString[2]);
-        total = num1 / num2;
-        return total;
-      }
-      function subtract() {
-        num1 = parseFloat(splitString[0]);
-        num2 = parseFloat(splitString[2]);
-        total = num1 - num2;
-        return total;
-      }
-      function addition() {
-        num1 = parseFloat(splitString[0]);
-        num2 = parseFloat(splitString[2]);
-        total = num1 + num2;
-        return total;
-      }
+
       // beginning function for any button pushed
       if (value === 'C') {
         holdingNode.textContent = '';
@@ -76,33 +67,25 @@
           // split string & put in array
           splitString = holdingNode.textContent.split (" ");
           console.log(splitString);
-          // multiply
+          // doing math with split string
           if (splitString[1] === "*") {
-            // running multiply function to put values in holdingNode
-            console.log(multiply());
-            holdingNode.textContent = multiply();
-          // divide
+            console.log(doMath('*'));
+            holdingNode.textContent = doMath('*');
           } else if (splitString[1] === "/") {
-            // running divide function to put values in holdingNode
-            console.log(divide());
-            holdingNode.textContent = divide();
-          // subtract
+            console.log(doMath('/'));
+            holdingNode.textContent = doMath('/');
           } else if (splitString[1] === "-") {
-            // running subtract function to put values in holdingNode
-            console.log(subtract());
-            holdingNode.textContent = subtract();
+            console.log(doMath('-'));
+            holdingNode.textContent = doMath('-');
           } else if (splitString[1] === "+") {
-            // running addition function to put values in holdingNode
-            console.log(addition());
-            holdingNode.textContent = addition();
+            console.log(doMath('+'));
+            holdingNode.textContent = doMath('+');
           }
       } else {
           holdingNode.textContent = holdingNode.textContent + value;
           console.log(holdingNode.textContent);
           operatorClicked = 0;
       }
-    // })
-
   });
   }
 
