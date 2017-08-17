@@ -16,7 +16,7 @@ This exercise will help you understand how to use JavaScript functions as well a
 
 ### Step 3: Apply the Styles
 
-- Using the mockup provided below, create and apply the correct CSS Styles
+- Using the mockup provided, create and apply the correct CSS Styles
 
 ### Step 4: Write the JavaScript
 
