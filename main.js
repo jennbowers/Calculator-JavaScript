@@ -39,12 +39,10 @@
         holdingNode.textContent = '';
         operatorClicked = 0;
         decimalClicked = 0;
-        console.log(value);
       } else if (value === '.') {
         if (decimalClicked < 1) {
           holdingNode.textContent = holdingNode.textContent + value;
           decimalClicked++;
-          console.log(decimalClicked);
         } else {
           return;
         }
@@ -55,35 +53,24 @@
             }
             holdingNode.textContent = holdingNode.textContent + ' ' + value + ' ';
             operatorClicked++;
-            console.log(operatorClicked);
-            console.log(holdingNode.textContent);
           } else {
             return;
           }
           decimalClicked = 0;
       } else if (value === '=') {
           operatorClicked = 0;
-          console.log(holdingNode.textContent);
-          // split string & put in array
           splitString = holdingNode.textContent.split (" ");
-          console.log(splitString);
-          // doing math with split string
           if (splitString[1] === "*") {
-            console.log(doMath('*'));
             holdingNode.textContent = doMath('*');
           } else if (splitString[1] === "/") {
-            console.log(doMath('/'));
             holdingNode.textContent = doMath('/');
           } else if (splitString[1] === "-") {
-            console.log(doMath('-'));
             holdingNode.textContent = doMath('-');
           } else if (splitString[1] === "+") {
-            console.log(doMath('+'));
             holdingNode.textContent = doMath('+');
           }
       } else {
           holdingNode.textContent = holdingNode.textContent + value;
-          console.log(holdingNode.textContent);
           operatorClicked = 0;
       }
   });
