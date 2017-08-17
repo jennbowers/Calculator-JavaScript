@@ -2,17 +2,14 @@
   'use strict';
 
 // this is creating a variable that is pulling from each html element with a class of cal-button
+  var buttons = document.querySelectorAll('.cal-button');
+  var decimalClicked = 0;
+  var operatorClicked = 0;
 
-  var elements = document.querySelectorAll('.cal-button');
-    var decimalClicked = 0;
-    var operatorClicked = 0;
-
-
-// this is creating a for loop to go through each button with a class of cal-button (var elements) and add an event listener to each one to watch for a "click" and when it is click it will run the function(event).
-// the function(event) creates a variable out of the content of the button that is clicked. It then creates a variable out of the window of the calc. Then in the window of the calc it puts the content of what was already in the window along with the content of the button that was just pushed.
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', function(event){
-      // declaring variables
+// this is looping through each button and adding event listeners to each and when it is clicked it will run the function(event).
+// the function(event) pushes all values into the window of the calculator.
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(event){
       var num1;
       var num2;
       var operator;
@@ -21,7 +18,7 @@
       var toArray = [];
       var value = event.target.textContent;
       var holdingNode = document.querySelector('.holding-math');
-      // declaring functions
+
       function multiply() {
         num1 = parseFloat(splitString[0]);
         num2 = parseFloat(splitString[2]);
@@ -46,7 +43,7 @@
         total = num1 + num2;
         return total;
       }
-      // beginning function
+      // beginning function for any button pushed
       if (value === 'C') {
         holdingNode.textContent = '';
         operatorClicked = 0;
@@ -60,18 +57,11 @@
         } else {
           return;
         }
-      } else if (value === 'x') {
+      } else if (value === 'x' || value === '/' || value === '-' || value === '+'){
           if (operatorClicked < 1) {
-            holdingNode.textContent = holdingNode.textContent + ' ' + '*' + ' ';
-            operatorClicked++;
-            console.log(operatorClicked);
-            console.log(holdingNode.textContent);
-          } else {
-            return;
-          }
-          decimalClicked = 0;
-      } else if (value === '/' || value === '-' || value === '+'){
-          if (operatorClicked < 1) {
+            if (value === 'x') {
+              value = '*';
+            }
             holdingNode.textContent = holdingNode.textContent + ' ' + value + ' ';
             operatorClicked++;
             console.log(operatorClicked);
@@ -113,7 +103,7 @@
       }
     // })
 
-  })
+  });
   }
 
 
